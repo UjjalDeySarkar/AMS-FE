@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Attendance Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E40AF',
+            accent: '#2563EB',
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-gray-100 flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 min-h-screen bg-white shadow-lg p-6 space-y-6 hidden md:block">
+    <h2 class="text-2xl font-bold text-primary mb-10">AMS Admin</h2>
+    <nav class="space-y-4">
+      <a href="index.html" class="block text-primary font-bold">Dashboard</a>
+      <a href="employee.html" class="block text-gray-700 hover:text-primary">Employees</a>
+      <a href="#" class="block text-gray-700 hover:text-primary">Reports</a>
+      <a href="#" class="block text-gray-700 hover:text-primary">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6 overflow-y-auto">
+    <div class="max-w-7xl mx-auto space-y-8">
+      
+      <!-- Page Header -->
+      <header class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold text-gray-800">Attendance Dashboard</h1>
+        <button class="block md:hidden text-primary text-2xl">☰</button>
+      </header>
+
+      <!-- Summary Cards -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Total Employees -->
+        <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 flex items-center space-x-4">
+          <div class="p-3 bg-blue-100 rounded-full text-blue-600 text-xl">👥</div>
+          <div>
+            <p class="text-sm text-gray-500">Total Employees</p>
+            <p class="text-2xl font-bold" id="totalEmployees">0</p>
+          </div>
+        </div>
+
+        <!-- Present Today -->
+        <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 flex items-center space-x-4">
+          <div class="p-3 bg-green-100 rounded-full text-green-600 text-xl">✅</div>
+          <div>
+            <p class="text-sm text-gray-500">Present Today</p>
+            <p class="text-2xl font-bold" id="presentToday">0</p>
+          </div>
+        </div>
+
+        <!-- Absent Today -->
+        <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 flex items-center space-x-4">
+          <div class="p-3 bg-red-100 rounded-full text-red-600 text-xl">❌</div>
+          <div>
+            <p class="text-sm text-gray-500">Absent Today</p>
+            <p class="text-2xl font-bold" id="absentToday">0</p>
+          </div>
+        </div>
+
+        <!-- Total Time Tracked -->
+        <div class="bg-white rounded-xl shadow hover:shadow-lg transition p-5 flex items-center space-x-4">
+          <div class="p-3 bg-yellow-100 rounded-full text-yellow-600 text-xl">⏱️</div>
+          <div>
+            <p class="text-sm text-gray-500">Total Time Tracked</p>
+            <p class="text-2xl font-bold" id="lateToday">--</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Attendance Table -->
+      <section class="bg-white shadow rounded-xl overflow-x-auto">
+        <table class="min-w-full table-auto">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Employee Name</th>
+              <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">In-Time</th>
+              <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Out-Time</th>
+              <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Total Time In Office</th>
+            </tr>
+          </thead>
+          <tbody id="attendanceBody" class="divide-y divide-gray-200 bg-white">
+            <!-- script.js will populate -->
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
