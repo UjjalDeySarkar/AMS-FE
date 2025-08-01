@@ -4,7 +4,7 @@ const headers = {
 };
 
 // Fetch and display total employees
-fetch('https://3d54dc2d3efa.ngrok-free.app/api/employees', {
+fetch('https://c71ed82fbf3a.ngrok-free.app/api/employees', {
   headers: headers
 })
   .then(response => response.json())
@@ -16,7 +16,7 @@ fetch('https://3d54dc2d3efa.ngrok-free.app/api/employees', {
   });
 
 // Fetch and display today's attendance summary
-fetch('https://3d54dc2d3efa.ngrok-free.app/api/attendances/summary/today', {
+fetch('https://c71ed82fbf3a.ngrok-free.app/api/attendances/summary/today', {
   headers: headers
 })
   .then(response => response.json())

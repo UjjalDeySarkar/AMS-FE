@@ -1,4 +1,4 @@
-const apiUrl = 'https://3d54dc2d3efa.ngrok-free.app/api/employees';
+const apiUrl = 'https://c71ed82fbf3a.ngrok-free.app/api/employees';
 const sessionCookie = document.cookie.match(/JSESSIONID=([^;]+)/)?.[0] || '';
 
 // Create employee
