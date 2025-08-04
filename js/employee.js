@@ -1,4 +1,6 @@
-const apiUrl = 'https://c71ed82fbf3a.ngrok-free.app/api/employees';
+import { config } from './config.js';
+
+const apiUrl = `${config.API_URL}/api/employees`;
 const sessionCookie = document.cookie.match(/JSESSIONID=([^;]+)/)?.[0] || '';
 
 // Create employee
@@ -12,9 +14,9 @@ form.addEventListener('submit', async (e) => {
     const res = await fetch(apiUrl, {
       method: 'POST',
       headers: {
+        ...config.headers,
         'Content-Type': 'application/json',
-        'Cookie': sessionCookie,
-        "ngrok-skip-browser-warning": "true"
+        'Cookie': sessionCookie
       },
       body: JSON.stringify(payload)
     });
@@ -34,9 +36,9 @@ async function fetchEmployees() {
     const res = await fetch(apiUrl, {
       method: 'GET',
       headers: {
+        ...config.headers,
         'Content-Type': 'application/json',
-        'Cookie': sessionCookie,
-        "ngrok-skip-browser-warning": "true"
+        'Cookie': sessionCookie
       }
     });
 

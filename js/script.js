@@ -1,11 +1,8 @@
-// Common headers to skip ngrok warning
-const headers = {
-  'ngrok-skip-browser-warning': 'true'
-};
+import { config } from './config.js';
 
 // Fetch and display total employees
-fetch('https://c71ed82fbf3a.ngrok-free.app/api/employees', {
-  headers: headers
+fetch(`${config.API_URL}/api/employees`, {
+  headers: config.headers
 })
   .then(response => response.json())
   .then(employees => {
@@ -16,8 +13,8 @@ fetch('https://c71ed82fbf3a.ngrok-free.app/api/employees', {
   });
 
 // Fetch and display today's attendance summary
-fetch('https://c71ed82fbf3a.ngrok-free.app/api/attendances/summary/today', {
-  headers: headers
+fetch(`${config.API_URL}/api/attendances/summary/today`, {
+  headers: config.headers
 })
   .then(response => response.json())
   .then(attendanceData => {
